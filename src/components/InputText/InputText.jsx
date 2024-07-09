@@ -1,14 +1,14 @@
 import React from "react";
 import './InputText.css';
 
-const InputText = () => {
-return (
-<div className="input-Text">
-    <label>Nombre</label>
-    <input type="text" placeholder="Nombre" />
-</div>
+const InputText = (props) => {
+    return (
+        <div className="input-Text">
+            <label>{props.titulo}</label>
+            <input type="text" placeholder={props.placeholder} />
+        </div>
 
-);
+    );
 
 }
 
