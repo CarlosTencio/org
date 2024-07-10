@@ -1,23 +1,28 @@
 import './List.css';
-const ListOptions = () => {
-//metodo map ->arreglo.map( (teams,index)=>{
-//return <option></option>
-//}) 
+const ListOptions = (props) => {
+    //metodo map ->arreglo.map( (teams,index)=>{
+    //return <option></option>
+    //}) 
 
     const teams = ["Programación",
-        "Front end", 
-        "Data Science", 
+        "Front end",
+        "Data Science",
         "Devops",
         "UX y diseño",
-         "Móvil", 
-         "Innovación y gestión"];
+        "Móvil",
+        "Innovación y gestión"];
 
-  return (
+    const manejarCambio = (e) => {
+        props.updateTeam(e.target.value);
+    }
+
+    return (
         <div className="list-option">
             <label>Equipos</label>
-            <select name="" id="">
+            <select value={props.valor} onChange={manejarCambio}>
+                <option value="" disabled defaultValue="" hidden>Seleccionar equipo</option>
                 {teams.map((team, index) => {
-                    return <option key={index}>{team}</option>
+                    return <option key={index} value={team}>{team}</option>
                 })}
             </select>
         </div>
