@@ -4,18 +4,25 @@ import Header from './components/Header/Header.jsx';
 import Form from './components/Form/Form.jsx';
 import MyOrg from './components/MyOrg/MyOrg.jsx';
 import Team from './components/Team/Team.jsx';
-
+import Footer from './components/Footer/Footer.jsx';
 
 function App() {
 
   const [showForm, updateShow] = useState(true);
-
+const [collaborators, updateCollaborators] = useState([]);
   //ternario para mostrar u ocultar el formulario= condiciones ? si es verdadero : si es falso
   // condicion && seMuestra
 
 
   const changeDisplay = () => {
     updateShow(!showForm);
+  }
+
+  const addCollaborator = (collaborator) => {
+    console.log("nuevo",collaborator);
+    //spread operator para agregar un nuevo colaborador al array, es una copia del array original
+    updateCollaborators([...collaborators,collaborator]);
+
   }
 
   //equipos
@@ -61,13 +68,22 @@ function App() {
     <div>
       <Header />
       {/* {showForm ? <Form /> : <></>} */}
-      {showForm && <Form />}
+      {showForm && <Form
+       teams={teams.map((equipo)=>equipo.titulo)}
+       addCollaborator={addCollaborator}
+       />}
+
+
       <MyOrg changeDisplay={changeDisplay} />
-      <Team team="Programacion" />
-      <Team team="Front end" />
-      <Team team="Data Science" />
-      <Team team="Devops" />
-      <Team team="UX y Diseño" />
+      {
+        teams.map((equipo) => <Team 
+         datos={equipo}
+         key={equipo.titulo}
+         collaborators={collaborators.filter(collaborator=>collaborator.team===equipo.titulo)}/>)
+      }
+
+<Footer/>
+
     </div>
   );
 }
