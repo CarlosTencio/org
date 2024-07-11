@@ -3,18 +3,21 @@ import './InputText.css';
 
 
 const InputText = (props) => {
+    //destructuring
+const {type ="text"}=props;
 
     const handleChange = (e) => {
         props.updateValue(e.target.value);
     }
     return (
-        <div className="input-Text">
+        <div className={`input input-${type}`}>
             <label>{props.titulo}</label>
-            <input type="text"
+            <input 
                 placeholder={props.placeholder}
                 required={props.required}
                 value={props.valor}
-                onChange={handleChange} />
+                onChange={handleChange} 
+                type={type}/>
         </div>
 
     );

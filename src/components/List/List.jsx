@@ -6,6 +6,7 @@ const ListOptions = (props) => {
 
 
     const manejarCambio = (e) => {
+        console.log("cambio", e.target.value)
         props.updateTeam(e.target.value);
     }
 
