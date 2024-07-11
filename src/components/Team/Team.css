@@ -1,11 +1,12 @@
 .team{
     width: 100%;
-    /* background-color: #d9f7e9; */
+    background-color: #d9f7e9; 
     padding: 32px;
     /* que no se mueva la caja y no se salga */
     box-sizing: border-box;
     text-align: center;
     font-size: 32px;
+    position: relative;
 }
 
 .team h3{
@@ -19,5 +20,10 @@
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    
+
+}
+.color{
+    position: absolute;
+    right: 50px;
+    top: 20px;
 }
