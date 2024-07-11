@@ -4,13 +4,6 @@ const ListOptions = (props) => {
     //return <option></option>
     //}) 
 
-    const teams = ["Programación",
-        "Front end",
-        "Data Science",
-        "Devops",
-        "UX y diseño",
-        "Móvil",
-        "Innovación y gestión"];
 
     const manejarCambio = (e) => {
         props.updateTeam(e.target.value);
@@ -21,7 +14,7 @@ const ListOptions = (props) => {
             <label>Equipos</label>
             <select value={props.valor} onChange={manejarCambio}>
                 <option value="" disabled defaultValue="" hidden>Seleccionar equipo</option>
-                {teams.map((team, index) => {
+                {props.teams.map((team, index) => {
                     return <option key={index} value={team}>{team}</option>
                 })}
             </select>
